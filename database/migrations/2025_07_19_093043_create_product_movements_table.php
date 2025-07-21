@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->foreignId('warehouse_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('order_id')->nullable()->after('id')->constrained()->cascadeOnDelete();
+            $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
             $table->integer('delta');
             $table->string('reason')->nullable();
             $table->timestamp('created_at')->useCurrent();
