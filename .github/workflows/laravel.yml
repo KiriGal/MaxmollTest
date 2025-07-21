@@ -66,5 +66,9 @@ jobs:
     - name: Run migrations
       run: php artisan migrate --force
 
+    - name: Start Laravel server
+      run: php artisan serve
+
+
     - name: Run Tests
       run: php artisan test
