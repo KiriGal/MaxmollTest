@@ -48,7 +48,7 @@ jobs:
         sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=password/' .env
 
     - name: Install Dependencies
-      run: composer update -q --no-ansi --no-interaction --prefer-dist
+      run: install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: Generate key
       run: php artisan key:generate
