@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_movements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('warehouse_id')->constrained()->cascadeOnDelete();
-            $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('warehouse_id')->references('id')->on('warehouses');
+            $table->foreign('order_id')->references('id')->on('orders');
             $table->integer('delta');
             $table->string('reason')->nullable();
             $table->timestamp('created_at')->useCurrent();
